@@ -23,14 +23,14 @@
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
-      <li class="active"><a href="#"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
+      <li class="active"><a href="{{url('/')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
       <li><a href="{{url('voiture')}}"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
       <li><a href="{{url('bus')}}"><i class='fas fa-bus' style='font-size:25px;color:white'></i>  BUS</a></li>
       <li><a href="#"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
 </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="{{url('cnx')}}"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
+      <li><a href="#"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
       <li><a href="#"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   CONNEXION</a></li>
     </ul>
   </div>
@@ -70,59 +70,37 @@
 
 
     <br>
-    <section class="gray-section">
-<div class="text text-center">
-    <h1>Statistiques</h1>
-</div>
+    <div class="text text-center">
+        <h1>Où Voulez-vous aller?</h1>
+        <form class="form-horizontal" action="/action_page.php" >
+            <div class="form-group">
+                
+                <div class="col-sm-offset-5 col-sm-3">
+                <input type="text" class="form-control"  placeholder="Départ">
+                </div>
+            </div>
+            <div class="form-group">
+           
+                <div class="col-sm-offset-5 col-sm-3">
+                <input type="text" class="form-control"  placeholder="Déstination">
+                </div>
 
-    <table class="table" style="background-color:#000000;height:10%;">
-  <thead>
-    <tr>
-      <th scope="col" class="text text-center" style="color:#FFFFFF;font-size:20px;">100  Personne Inscrit</th>
-      <th scope="col" class="text text-center" style="color:#FFFFFF;font-size:20px;">400  Trajet Publié</th>
-      <th scope="col" class="text text-center" style="color:#FFFFFF;font-size:20px;">50  Trajet d'aujord'hui</th>
-      
-    </tr>
-  </thead>
-</table>
-</section>
-    <br>
-    <section class="gray-section">
-<div class="text text-center">
-    <h1>Les Dérniéres Annonces</h1>
-</div>
-<div class="container p-5 my-5 text-white" style="background-color:#FFFFFF;color:#000000;border-radius:5px;border:#000000 1px solid;">
-<div class="text text-left">
-    <p>ville départ ---->Ville déstination
-</div>
-<div class="text text-right">
-<p>Prix/personne :40 T.N.D
-    <p>nb place : 2 <br>
-    <p>voiture : BMW<br>
-</div>
-<div class="text text-center">
-<button class="btn btn-success">Détails</button>
-</div>
-<br>
-</div>
-<br>
-<div class="container p-5 my-5 text-white" style="background-color:#FFFFFF;color:#000000;border-radius:5px;border:#000000 1px solid;">
-<div class="text text-left">
-    <p>ville départ ---->Ville déstination
-</div>
-<div class="text text-right">
-    <p>Prix/personne :20 T.N.D
-    <p>nb place : 4 <br>
-    <p>voiture : Passat<br>
-</div>
-<div class="text text-center">
-<button class="btn btn-success">Détails</button>
+            </div>
+            <div class="form-group">
+           
+                <div class="col-sm-offset-5 col-sm-3">
+                <input type="date" class="form-control" >
+                </div>
 
-</div>
-<br>
-</div>
-
-</section>
+            </div>
+           
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-3">
+                <button type="submit" class="btn btn-default">Chercher</button>
+                </div>
+            </div>
+</form>
+    </div>
     <br>
 <!--footer-->
 <section id="contact" class="bg-info" >

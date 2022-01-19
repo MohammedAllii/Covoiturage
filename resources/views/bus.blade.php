@@ -30,7 +30,7 @@
 </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="{{url('cnx')}}"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
+      <li><a href="#"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
       <li><a href="#"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   CONNEXION</a></li>
     </ul>
   </div>
@@ -91,7 +91,7 @@
 <div class="text text-center">
     <h1>Les Dérniéres Annonces</h1>
 </div>
-<div class="container p-5 my-5 text-white" style="background-color:#FFFFFF;color:#000000;border-radius:5px;border:#000000 1px solid;">
+<div class="container p-5 my-5 text-white" style="background-color:#E7E1DF;color:#000000;border-radius:5px;border:#000000 1px solid;">
 <div class="text text-left">
     <p>ville départ ---->Ville déstination
 </div>
@@ -102,11 +102,12 @@
 </div>
 <div class="text text-center">
 <button class="btn btn-success">Détails</button>
-</div>
 <br>
 </div>
+
+</div>
 <br>
-<div class="container p-5 my-5 text-white" style="background-color:#FFFFFF;color:#000000;border-radius:5px;border:#000000 1px solid;">
+<div class="container p-5 my-5 text-white" style="background-color:#000000;color:#FFFFFF;border-radius:5px;">
 <div class="text text-left">
     <p>ville départ ---->Ville déstination
 </div>
@@ -119,7 +120,6 @@
 <button class="btn btn-success">Détails</button>
 
 </div>
-<br>
 </div>
 
 </section>
