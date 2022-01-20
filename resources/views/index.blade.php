@@ -7,7 +7,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Covoiturage</title>
-   
+    <style>
+#contact{
+  
+  padding: 3px;
+width: 100%;
+}
+</style>
 </head>
 <body>
 
@@ -30,8 +36,8 @@
 </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="{{url('cnx')}}"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
-      <li><a href="#"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   CONNEXION</a></li>
+      <li><a href="{{url('inscrit')}}"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
+      <li><a href="{{url('cnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   CONNEXION</a></li>
     </ul>
   </div>
 </nav>
@@ -139,9 +145,9 @@
         <div class="row">
             <div class="col-lg-12 text-center m-t-lg m-b-lg">
                 <p><strong>&copy; 2022 Mejri Mohamed Ali</strong><br/> </p>
-                <a href=""><i class="fab fa-facebook-square" style='font-size:25px;color:black'></i></a>
-                <a href=""><i class="fab fa-linkedin" style='font-size:25px;color:black'></i></a>
-                <a href=""><i class="fab fa-instagram" style='font-size:25px;color:black'></i></a>
+                <a href="https://www.facebook.com/med.ali.mejri4/" target="_blank"><i class="fab fa-facebook-square" style='font-size:25px;color:black'></i></a>
+                <a href="https://www.linkedin.com/in/m%C3%A9jri-mohamed-ali-7137011ba/" target="_blank"><i class="fab fa-linkedin" style='font-size:25px;color:black'></i></a>
+                <a href="https://www.instagram.com/hamouda_mejrii/?hl=fr" target="_blank"><i class="fab fa-instagram" style='font-size:25px;color:black'></i></a>
             </div>
         </div>
     </div>

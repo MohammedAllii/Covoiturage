@@ -23,6 +23,9 @@ Route::get('/voiture',function(){
 Route::get('/bus',function(){
     return view('bus');
     });
-    Route::get('/cnx',function(){
-        return view('connexion');
-        });
+Route::get('/cnx',function(){
+    return view('connexion');
+    });
+Route::get('/inscrit',function(){
+    return view('inscription');
+    });    
