@@ -9,12 +9,15 @@
     <title>Covoiturage</title>
     <style>
 #contact{
-  
-  padding: 3px;
+padding: 3px;
 width: 100%;
+margin-top:100px;
 }
 #formul{
     margin-top:7%;
+}
+.navbar{
+  background:#000000;
 }
 </style>
 </head>
@@ -47,50 +50,46 @@ width: 100%;
 <!--header-->
 
 <section class="gray-section" >
-    <div class="text text-center" >
-        <h1 class="col-sm-offset-4 col-sm-3" id="formul">S’inscrire !</h1>
-        <form class="form-horizontal" action="#" >
-        <div class="form-group">
-           <div class="col-sm-offset-4 col-sm-3">
-           <input type="text" class="form-control"  placeholder="Nom d'utilisateur">
-           </div>
-       </div>
-       <div class="form-group">
-           <div class="col-sm-offset-4 col-sm-3">
-           <input type="text" class="form-control"  placeholder="Nom & prénom">
-           </div>
-       </div>
-       <div class="form-group">
-           <div class="col-sm-offset-4 col-sm-3">
-           <input type="number" class="form-control"  placeholder="Age">
-           </div>
-       </div>
-       <div class="form-group">
-           <div class="col-sm-offset-4 col-sm-3">
-           <input type="password" class="form-control"  placeholder="Mot de passe">
-           </div>
-       </div>
-       <div class="form-group">
-           <div class="col-sm-offset-4 col-sm-3">
-           <input type="password" class="form-control"  placeholder="Confirmer mot de passe">
-           </div>
-       </div>
-       
-       <div class="form-group">
-                <div class="col-sm-offset-4 col-sm-3">
-                <button type="submit" class="btn btn-success">S'inscrire</button>
-                </div>
-            </div>
-            <div class="form-group">
-           <div class="col-sm-offset-4 col-sm-3">
-             <hr style="width:60%;">
-             <button type="submit" class="btn btn-info">J'ai déja un compte</button>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4" style="margin-top:70px;">
+                <h2><g>S'inscrire</g></h2>
+                <hr>
+                <form action="{{Route('register')}}" method="post">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                    @endif
+                    @if(Session::has('fail'))
+                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                    @endif
+                    @csrf
+                    <div class="form-group">
+                        <label for="name">Nom Complet</label>
+                        <input type="text" class="form-control" placeholder="Entrer votre nom complet" name="nom" value="{{old('nom')}}">
+                        <span class="text-danger" >@error('nom'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" placeholder="Entrer votre Email" name="email" value="{{old('email')}}">
+                        <span class="text-danger" >@error('email'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" placeholder="Entrer votre age" name="age" value="{{old('age')}}">
+                        <span class="text-danger" >@error('age'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de Passe</label>
+                        <input type="password" class="form-control" placeholder="Entrer votre mot de passe" name="password" value="{{old('password')}}">
+                        <span class="text-danger" >@error('password'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-block btn-primary" type="submit">S'inscrire</button>
+                    </div>
+                    <a href="">J'ai déja un compte</a>
+                </form>
+            </div>  
         </div>
-       </div>
-       
-        </form>
-        <br><br><br>
     </div>
 </section>
     <br><br><br><br>
@@ -98,14 +97,6 @@ width: 100%;
 <section id="contact" class="bg-info" >
     <div class="container">
        <br>
-        
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <a href="mailto:mejrihamouda8@email.com" class="btn btn-info">Envoyer un e-mail</a>
-                <p class="m-t-sm">        
-                </p>    
-            </div>
-        </div>
         <div class="row">
             <div class="col-lg-12 text-center m-t-lg m-b-lg">
                 <p><strong>&copy; 2022 Mejri Mohamed Ali</strong><br/> </p>

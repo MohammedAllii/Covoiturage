@@ -18,6 +18,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/users/{name?}', function ($name =null) {
-    return 'hi '.$name;
-})->where('name','[A-Za-z]+');

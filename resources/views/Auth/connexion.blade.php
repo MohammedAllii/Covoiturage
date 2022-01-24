@@ -3,18 +3,22 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Covoiturage</title>
     <style>
 #contact{
   
   padding: 3px;
 width: 100%;
+margin-top:100px;
 }
 #formul{
     margin-top:10%;
+}
+.navbar{
+  background:#000000;
 }
 </style>
 </head>
@@ -50,41 +54,44 @@ width: 100%;
 
 
     <br>
-    <div class="text text-center">
-        <h1 class="col-sm-offset-4 col-sm-3" id="formul">Connecter Vous !</h1>
-        <form class="form-horizontal" action="#" >
-        <div class="form-group">
-           <div class="col-sm-offset-4 col-sm-3">
-           <input type="text" class="form-control"  placeholder="Nom d'utilisateur">
-           </div>
-       </div>
-       <div class="form-group">
-           <div class="col-sm-offset-4 col-sm-3">
-           <input type="password" class="form-control"  placeholder="Mot de passe">
-           </div>
-       </div>
-       
-       <div class="form-group">
-                <div class="col-sm-offset-4 col-sm-3">
-                <button type="submit" class="btn btn-info">Se connecter</button>
-                </div>
-            </div>
-            <div class="form-group">
-           <div class="col-sm-offset-4 col-sm-3">
-             <a href="">Mot de Passe oublié?</a>
-             <hr style="width:60%;">
-             <button type="submit" class="btn btn-success">Créer compte</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4" style="margin-top:70px;">
+                <h2><g>Connecter-vous!</g></h2>
+                <hr>
+                <form action="{{Route('login')}}" method="post">
+                @if(Session::has('success'))
+                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                    @endif
+                    @if(Session::has('fail'))
+                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                    @endif
+                    @csrf
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" placeholder="Entrer votre Email" name="email" value="{{old('email')}}">
+                        <span class="text-danger" >@error('email'){{$message}} @enderror</span>
 
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Mot de Passe</label>
+                        <input type="password" class="form-control" placeholder="Entrer votre mot de passe" name="password" value="{{old('password')}}">
+                        <span class="text-danger" >@error('password'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-block btn-primary" type="submit">Connecter</button>
+                    </div>
+                    <a href="">Créer un compte</a>
+                </form>
+            </div>  
         </div>
-       </div>
-       
-        </form>
     </div>
     <br><br><br><br>
 <!--footer-->
 <section id="contact" class="bg-info" >
     <div class="container">
-        <br><br><br><br>
+       <br>
         
         <div class="row">
             <div class="col-lg-12 text-center">

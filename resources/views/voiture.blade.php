@@ -13,6 +13,9 @@
   padding: 2px;
 width: 100%;
 }
+.navbar{
+  background:#000000;
+}
 </style>
 </head>
 <body>

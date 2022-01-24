@@ -32,15 +32,15 @@ width: 100%;
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
-      <li><a href="#"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
+      <li class="active"><a href="#"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
       <li><a href="{{url('voiture')}}"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
-      <li class="active"><a href="{{url('bus')}}"><i class='fas fa-bus' style='font-size:25px;color:white'></i>  BUS</a></li>
-      <li><a href="#"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
+      <li><a href="{{url('bus')}}"><i class='fas fa-bus' style='font-size:25px;color:white'></i>  BUS</a></li>
+      <li><a href="{{url('trajet')}}"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
 </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="{{url('inscrit')}}"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
-      <li class="active"><a href="{{url('cnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   CONNEXION</a></li>
+    <li><a href="#">Welcome<div style="color:yellow;"> {{$data ->nom}}</div></a></li>
+      <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>
 </nav>
@@ -98,16 +98,16 @@ width: 100%;
     <br>
     <section class="gray-section">
 <div class="text text-center">
-    <h1>Nos Bus !</h1>
+    <h1>Les Dérniéres Annonces</h1>
 </div>
 <div class="container p-5 my-5 text-white" style="background-color:#FFFFFF;color:#000000;border-radius:5px;border:#000000 1px solid;">
 <div class="text text-left">
-    <h2>ville départ ---->Ville déstination<h2>
+    <p>ville départ ---->Ville déstination
 </div>
 <div class="text text-right">
-<h3>Prix/personne :40 T.N.D</h3>
-    <h3>nb place : 2 </h3><br>
-    <h3>voiture : BMW</h3><br>
+<p>Prix/personne :40 T.N.D
+    <p>nb place : 2 <br>
+    <p>voiture : BMW<br>
 </div>
 <div class="text text-center">
 <button class="btn btn-success">Détails</button>
@@ -117,15 +117,16 @@ width: 100%;
 <br>
 <div class="container p-5 my-5 text-white" style="background-color:#FFFFFF;color:#000000;border-radius:5px;border:#000000 1px solid;">
 <div class="text text-left">
-    <h2>ville départ ---->Ville déstination</h2>
+    <p>ville départ ---->Ville déstination
 </div>
 <div class="text text-right">
-    <h3>Prix/personne :20 T.N.D</h3>
-    <h3>nb place : 4 </h3><br>
-    <h3>voiture : Passat</h3><br>
+    <p>Prix/personne :20 T.N.D
+    <p>nb place : 4 <br>
+    <p>voiture : Passat<br>
 </div>
 <div class="text text-center">
 <button class="btn btn-success">Détails</button>
+
 </div>
 <br>
 </div>

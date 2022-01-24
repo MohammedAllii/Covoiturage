@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,18 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',function(){
-return view('index');
-});
-Route::get('/voiture',function(){
-    return view('voiture');
-    });
-Route::get('/bus',function(){
-    return view('bus');
-    });
-Route::get('/cnx',function(){
-    return view('connexion');
-    });
-Route::get('/inscrit',function(){
-    return view('inscription');
-    });    
+Route::get('/',function(){return view('index');});
+Route::get('/trajet',function(){return view('trajet');});
+Route::get('/voiture',function(){return view('voiture');});
+Route::get('/bus',function(){return view('bus');});
+Route::get('/cnx',[AuthController::class,'login']);
+Route::get('/decocnx',[AuthController::class,'logout']);
+Route::get('/inscrit',[AuthController::class,'registration']);
+Route::get('/accueil',[AuthController::class,'accueil']);
+Route::post('/register',[AuthController::class,'inscription'])->name('register');
+Route::post('/login',[AuthController::class,'connexion'])->name('login');
+
+
+
+
