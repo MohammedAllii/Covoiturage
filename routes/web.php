@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\TrajetController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,9 +22,15 @@ Route::get('/bus',function(){return view('bus');});
 Route::get('/cnx',[AuthController::class,'login']);
 Route::get('/decocnx',[AuthController::class,'logout']);
 Route::get('/inscrit',[AuthController::class,'registration']);
-Route::get('/accueil',[AuthController::class,'accueil']);
+Route::get('/accueil',[TrajetController::class,'AllTrajet']);
+Route::get('/trajet',[TrajetController::class,'accueil']);
 Route::post('/register',[AuthController::class,'inscription'])->name('register');
 Route::post('/login',[AuthController::class,'connexion'])->name('login');
+Route::post('/AddTrajets',[TrajetController::class,'AddTrajet'])->name('AddTrajets');
+Route::get('/trajet',[TrajetController::class,'AllTrajet'])->name('AllTrajets');
+
+
+
 
 
 

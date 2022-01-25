@@ -27,12 +27,14 @@ class AuthController extends Controller
            'nom' =>'required',
            'email' =>'required|email|unique:users',
            'age' =>'required',
+           'phone'=>'required|min:8|max:8',
            'password' =>'required|min:6|max:26'
        ]);
        $user = new User();
        $user->nom=$request->nom;
        $user->email=$request->email;
        $user->age=$request->age;
+       $user->phone=$request->phone;
        $user->password=Hash::make($request->password);
        $res=$user->save();
        if($res){

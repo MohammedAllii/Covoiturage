@@ -39,7 +39,7 @@ width: 100%;
 </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="#">Welcome<div style="color:yellow;"> {{$data ->nom}}</div></a></li>
+    <li><a href="#">Welcome<div style="color:yellow;"></div></a></li>
       <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>
@@ -96,18 +96,19 @@ width: 100%;
 </table>
 </section>
     <br>
-    <section class="gray-section">
+<section class="gray-section">
 <div class="text text-center">
     <h1>Les Dérniéres Annonces</h1>
 </div>
+@foreach($trajet as $trajets)
 <div class="container p-5 my-5 text-white" style="background-color:#FFFFFF;color:#000000;border-radius:5px;border:#000000 1px solid;">
 <div class="text text-left">
-    <p>ville départ ---->Ville déstination
+    <h3>{{$trajets->villedep}} ---->{{$trajets->villedes}}</h3>
 </div>
 <div class="text text-right">
-<p>Prix/personne :40 T.N.D
-    <p>nb place : 2 <br>
-    <p>voiture : BMW<br>
+<h3>Prix/personne :{{$trajets->prix}}</h3>
+    <h3>nb place : {{$trajets->nbp}} </h3>
+    <h3>voiture : {{$trajets->marque}}</h3><br>
 </div>
 <div class="text text-center">
 <button class="btn btn-success">Détails</button>
@@ -115,21 +116,9 @@ width: 100%;
 <br>
 </div>
 <br>
-<div class="container p-5 my-5 text-white" style="background-color:#FFFFFF;color:#000000;border-radius:5px;border:#000000 1px solid;">
-<div class="text text-left">
-    <p>ville départ ---->Ville déstination
-</div>
-<div class="text text-right">
-    <p>Prix/personne :20 T.N.D
-    <p>nb place : 4 <br>
-    <p>voiture : Passat<br>
-</div>
-<div class="text text-center">
-<button class="btn btn-success">Détails</button>
+@endforeach
+<br>
 
-</div>
-<br>
-</div>
 
 </section>
     <br>

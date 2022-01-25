@@ -35,8 +35,6 @@ width: 100%;
       <li class="active"><a href="#"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
       <li><a href="{{url('voiture')}}"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
       <li><a href="{{url('bus')}}"><i class='fas fa-bus' style='font-size:25px;color:white'></i>  BUS</a></li>
-      <li><a href="#"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
-</li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="{{url('inscrit')}}"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>

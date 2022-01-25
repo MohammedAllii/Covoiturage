@@ -42,8 +42,8 @@ margin-top:100px;
 </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="{{url('inscrit')}}"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
-      <li><a href="{{url('cnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   CONNEXION</a></li>
+    <li><a href="#">Welcome<div style="color:yellow;"> {{$data ->nom}}</div></a></li>
+      <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>
 </nav>
@@ -55,7 +55,7 @@ margin-top:100px;
             <div class="col-md-4 col-md-offset-4" style="margin-top:70px;">
                 <h2><g>Publier un trajet</g></h2>
                 <hr>
-                <form action="{{Route('register')}}" method="post">
+                <form action="{{Route('AddTrajets')}}" method="post">
                     @if(Session::has('success'))
                     <div class="alert alert-success">{{Session::get('success')}}</div>
                     @endif
@@ -77,6 +77,11 @@ margin-top:100px;
                         <label for="nbp">Nombre de place</label>
                         <input type="number" class="form-control" placeholder="Nombre de place" name="nbp" value="{{old('nbp')}}">
                         <span class="text-danger" >@error('nbp'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="marque">Marque voiture</label>
+                        <input type="text" class="form-control" placeholder="Marque du voiture" name="marque" value="{{old('marque')}}">
+                        <span class="text-danger" >@error('marque'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="prix">Prix</label>

@@ -15,6 +15,11 @@ class CreateTrajetsTable extends Migration
     {
         Schema::create('trajets', function (Blueprint $table) {
             $table->id();
+            $table->string('villedep');
+            $table->string('villedes');
+            $table->number('nbp');
+            $table->string('marque');
+            $table->number('prix');
             $table->timestamps();
         });
     }
