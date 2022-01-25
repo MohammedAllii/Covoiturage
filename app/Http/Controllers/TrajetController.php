@@ -19,7 +19,8 @@ class TrajetController extends Controller
             'villedes' =>'required',
             'nbp' =>'required',
             'marque'=>'required',
-            'prix' =>'required'
+            'prix' =>'required',
+            'date' =>'required'
         ]);
        $trajet = new Trajet();
        $trajet->villedep=$request->villedep;
@@ -27,6 +28,7 @@ class TrajetController extends Controller
        $trajet->nbp=$request->nbp;
        $trajet->marque=$request->marque;
        $trajet->prix=$request->prix;
+       $trajet->date=$request->date;
        $res=$trajet->save();
        if($res){
             return back()->with('success',"Sahiteeeek");

@@ -101,15 +101,16 @@ width: 100%;
     <h1>Les Dérniéres Annonces</h1>
 </div>
 @foreach($trajet as $trajets)
-<div class="container p-5 my-5 text-white" style="background-color:#FFFFFF;color:#000000;border-radius:5px;border:#000000 1px solid;">
+<div class="container p-5 my-5 text-white" style="background-image:url('/images/bg.jpg');background-size:cover;color:#000000;border-radius:5px;border:#000000 1px solid;">
 <div class="text text-left">
-    <h3>{{$trajets->villedep}} ---->{{$trajets->villedes}}</h3>
+<h3> <span class="glyphicon glyphicon-map-marker" style="color:red;"> {{$trajets->villedep}}</span> ----><span class="glyphicon glyphicon-map-marker" style="color:green;">  {{$trajets->villedes}}</span></h3>
 </div>
 <div class="text text-right">
-<h3>Prix/personne :{{$trajets->prix}}</h3>
-    <h3>nb place : {{$trajets->nbp}} </h3>
-    <h3>voiture : {{$trajets->marque}}</h3><br>
-</div>
+<h3><div class="fa fa-money">  Prix:  <span style="color:red;">{{$trajets->prix}} Dt</span></div></h3>
+    <h3><div class='fas fa-wheelchair'>  Places : <span style="color:red;">{{$trajets->nbp}} </span></div></h3>
+    <h3><div class='fas fa-car'>  Marque  : <span style="color:red;"> {{$trajets->marque}}</span></div></h3>
+    <h3><div class='fas fa-clock'>  Date  : <span style="color:red;"> {{$trajets->date}}</span></div></h3><br>
+  </div>
 <div class="text text-center">
 <button class="btn btn-success">Détails</button>
 </div>
@@ -125,21 +126,13 @@ width: 100%;
 <!--footer-->
 <section id="contact" class="bg-info" >
     <div class="container">
-        <br><br><br><br>
-        
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <a href="mailto:mejrihamouda8@email.com" class="btn btn-primary">Envoyer un e-mail</a>
-                <p class="m-t-sm">        
-                </p>    
-            </div>
-        </div>
         <div class="row">
             <div class="col-lg-12 text-center m-t-lg m-b-lg">
-                <p><strong>&copy; 2022 Mejri Mohamed Ali</strong><br/> </p>
-                <a href="https://www.facebook.com/med.ali.mejri4/" target="_blank"><i class="fab fa-facebook-square" style='font-size:25px;color:black'></i></a>
+            <a href="https://www.facebook.com/med.ali.mejri4/" target="_blank"><i class="fab fa-facebook-square" style='font-size:25px;color:black'></i></a>
                 <a href="https://www.linkedin.com/in/m%C3%A9jri-mohamed-ali-7137011ba/" target="_blank"><i class="fab fa-linkedin" style='font-size:25px;color:black'></i></a>
                 <a href="https://www.instagram.com/hamouda_mejrii/?hl=fr" target="_blank"><i class="fab fa-instagram" style='font-size:25px;color:black'></i></a>
+                <p><strong>&copy; 2022 Mejri Mohamed Ali</strong><br/> </p>
+                
             </div>
         </div>
     </div>

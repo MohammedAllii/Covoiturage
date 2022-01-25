@@ -89,6 +89,11 @@ margin-top:100px;
                         <span class="text-danger" >@error('prix'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" placeholder="Date" name="date" value="{{old('date')}}">
+                        <span class="text-danger" >@error('date'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
                         <button class="btn btn-block btn-primary" type="submit">Publier</button>
                     </div>
                 </form>
