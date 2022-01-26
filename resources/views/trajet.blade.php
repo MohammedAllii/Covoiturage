@@ -42,7 +42,7 @@ margin-top:100px;
 </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="#">Welcome<div style="color:yellow;"> {{$data ->nom}}</div></a></li>
+    <li><a href="#"><div style="color:yellow;"> {{$data ->nom}}</div></a></li>
       <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>

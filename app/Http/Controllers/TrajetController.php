@@ -7,6 +7,7 @@ use App\Trajet;
 use Session;
 use App\User;
 use App\Http\Controllers\AuthController;
+use Carbon\Carbon;
 
 class TrajetController extends Controller
 {
@@ -41,11 +42,20 @@ class TrajetController extends Controller
         if(Session::has('loginId')){
             $data=User::where('id','=',Session::get('loginId'))->first();
         }
-        return view("accueil",compact('data'));
+        return view("trajet",compact('data'));
     }
     public function AllTrajet(){
         $trajet=array();
         $trajet=Trajet::get();
-        return view('accueil',compact('trajet'));
+        $data=array();
+        if(Session::has('loginId')){
+            $data=User::where('id','=',Session::get('loginId'))->first();
+        }
+        $users = User::all();
+        $trajets = Trajet::all();
+        $date=array();
+        $date = Carbon::now()->format('Y-m-d');
+        $trajetaujordhui = Trajet::where('date',$date)->count();
+        return view('accueil',compact('trajet','data','users','trajets','trajetaujordhui'));
     }
 }

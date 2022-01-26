@@ -17,8 +17,6 @@ use App\Http\Controllers\TrajetController;
 
 Route::get('/',function(){return view('index');});
 Route::get('/trajet',function(){return view('trajet');});
-Route::get('/voiture',function(){return view('voiture');});
-Route::get('/bus',function(){return view('bus');});
 Route::get('/cnx',[AuthController::class,'login']);
 Route::get('/decocnx',[AuthController::class,'logout']);
 Route::get('/inscrit',[AuthController::class,'registration']);
@@ -27,7 +25,6 @@ Route::get('/trajet',[TrajetController::class,'accueil']);
 Route::post('/register',[AuthController::class,'inscription'])->name('register');
 Route::post('/login',[AuthController::class,'connexion'])->name('login');
 Route::post('/AddTrajets',[TrajetController::class,'AddTrajet'])->name('AddTrajets');
-Route::get('/trajet',[TrajetController::class,'AllTrajet'])->name('AllTrajets');
 
 
 

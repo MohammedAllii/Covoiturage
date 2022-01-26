@@ -39,7 +39,7 @@ width: 100%;
 </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="#">Welcome<div style="color:yellow;"></div></a></li>
+    <li><a href="#"><div style="color:yellow;">{{$data ->nom}}</div></a></li>
       <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>
@@ -87,9 +87,9 @@ width: 100%;
     <table class="table" style="background-color:#000000;height:10%;">
   <thead>
     <tr>
-      <th scope="col" class="text text-center" style="color:#FFFFFF;font-size:20px;">100  Personne Inscrit</th>
-      <th scope="col" class="text text-center" style="color:#FFFFFF;font-size:20px;">400  Trajet Publié</th>
-      <th scope="col" class="text text-center" style="color:#FFFFFF;font-size:20px;">50  Trajet d'aujord'hui</th>
+      <th scope="col" class="text text-center" style="color:#FFFFFF;font-size:20px;">{{ $users->count() }}  Personne Inscrit</th>
+      <th scope="col" class="text text-center" style="color:#FFFFFF;font-size:20px;">{{ $trajets->count() }}  Trajet Publié</th>
+      <th scope="col" class="text text-center" style="color:#FFFFFF;font-size:20px;">{{$trajetaujordhui }}  Trajet d'aujord'hui</th>
       
     </tr>
   </thead>
@@ -128,6 +128,7 @@ width: 100%;
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center m-t-lg m-b-lg">
+              <br>
             <a href="https://www.facebook.com/med.ali.mejri4/" target="_blank"><i class="fab fa-facebook-square" style='font-size:25px;color:black'></i></a>
                 <a href="https://www.linkedin.com/in/m%C3%A9jri-mohamed-ali-7137011ba/" target="_blank"><i class="fab fa-linkedin" style='font-size:25px;color:black'></i></a>
                 <a href="https://www.instagram.com/hamouda_mejrii/?hl=fr" target="_blank"><i class="fab fa-instagram" style='font-size:25px;color:black'></i></a>

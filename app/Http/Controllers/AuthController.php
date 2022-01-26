@@ -67,4 +67,5 @@ class AuthController extends Controller
         }
         return view("accueil",compact('data'));
     }
+   
 }
