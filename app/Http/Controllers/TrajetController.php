@@ -45,8 +45,7 @@ class TrajetController extends Controller
         return view("trajet",compact('data'));
     }
     public function AllTrajet(){
-        $trajet=array();
-        $trajet=Trajet::get();
+        
         $data=array();
         if(Session::has('loginId')){
             $data=User::where('id','=',Session::get('loginId'))->first();
@@ -55,7 +54,21 @@ class TrajetController extends Controller
         $trajets = Trajet::all();
         $date=array();
         $date = Carbon::now()->format('Y-m-d');
+        $trajet=array();
+        $trajet=Trajet::where('date',$date)->get();
         $trajetaujordhui = Trajet::where('date',$date)->count();
         return view('accueil',compact('trajet','data','users','trajets','trajetaujordhui'));
+    }
+    public function search(Request $request){
+        $data=array();
+        if(Session::has('loginId')){
+            $data=User::where('id','=',Session::get('loginId'))->first();
+        }
+        $request->validate([
+            'villedep'=>'required',
+            'villedes'=>'required',
+        ]);
+        $trajett = Trajet::all()->where('villedep','=',$request->villedep)->where('villedes','=',$request->villedes);
+        return view('voiture',compact('trajett','data'));
     }
 }

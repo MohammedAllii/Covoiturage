@@ -19,7 +19,7 @@ class AuthController extends Controller
         if(Session::has('loginId')){
             Session()->forget('loginId');
             Session::flush();
-            return redirect('/');
+            return redirect('cnx');
         }
      }
     public function inscription(Request $request){
