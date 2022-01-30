@@ -34,12 +34,11 @@ width: 100%;
     <li><a href="#"></a></li>
       <li class="active"><a href="{{url('/accueil')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
       <li><a href="{{url('/voiture')}}"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
-      <li><a href="{{url('bus')}}"><i class='fas fa-bus' style='font-size:25px;color:white'></i>  BUS</a></li>
       <li><a href="{{url('trajet')}}"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
 </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="#"><div style="color:yellow;">{{$data ->nom}}</div></a></li>
+    <li style="color:white";>WELCOME <a href="{{url('profile')}}"><div style="color:yellow;">{{$data ->nom}}</div></a></li>
       <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>
@@ -109,10 +108,16 @@ width: 100%;
 <h3><div class="fa fa-money">  Prix:  <span style="color:red;">{{$trajets->prix}} Dt</span></div></h3>
     <h3><div class='fas fa-wheelchair'>  Places : <span style="color:red;">{{$trajets->nbp}} </span></div></h3>
     <h3><div class='fas fa-car'>  Marque  : <span style="color:red;"> {{$trajets->marque}}</span></div></h3>
-    <h3><div class='fas fa-clock'>  Date  : <span style="color:red;"> {{$trajets->date}}</span></div></h3><br>
-  </div>
-<div class="text text-center">
-<button class="btn btn-success">Détails</button>
+    <h3><div class='fas fa-clock'>  Date  : <span style="color:red;"> {{$trajets->date}}&nbsp;&nbsp;{{$trajets->heure}}</span></div></h3>
+      <div class="hide">
+        <h3><div class='fas fa-male'>  Publier par  : <span style="color:red;"> {{$trajets->name_user}}</span></div></h3>
+        <h3><div class='fas fa-phone'>  Télephone  : <span style="color:red;"> {{$trajets->phone}}</span></div></h3>
+        <h3><div class='fas fa-envelope'>  Email  : <span style="color:red;"> {{$trajets->email}}</span></div></h3>
+      </div>
+   </div>
+<div class="text text-right">
+<button class="btn btn-primary" class="show">Plus Détails</button>
+<button class="btn btn-success">Réserver</button>
 </div>
 <br>
 </div>
@@ -138,5 +143,12 @@ width: 100%;
         </div>
     </div>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script>
+     $(document).ready(function(){
+            $(".show").click(function(){
+            $(".hide").toggle(1000);
+            });});
+</script>
 </body>
 </html>

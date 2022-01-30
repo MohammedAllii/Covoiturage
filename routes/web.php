@@ -17,15 +17,16 @@ use App\Http\Controllers\TrajetController;
 
 Route::get('/',function(){return view('index');});
 Route::get('/trajet',function(){return view('trajet');});
-Route::get('/voiture',[TrajetController::class,'search'])->middleware('isLoggedIn');
 Route::get('/cnx',[AuthController::class,'login']);
 Route::get('/decocnx',[AuthController::class,'logout']);
 Route::get('/inscrit',[AuthController::class,'registration']);
-Route::get('/accueil',[TrajetController::class,'AllTrajet'])->middleware('isLoggedIn');
-Route::get('/trajet',[TrajetController::class,'accueil'])->middleware('isLoggedIn');
+Route::get('/accueil',[TrajetController::class,'AllTrajet']);
+Route::get('/trajet',[TrajetController::class,'accueil']);
 Route::post('/register',[AuthController::class,'inscription'])->name('register');
 Route::post('/login',[AuthController::class,'connexion'])->name('login');
 Route::post('/AddTrajets',[TrajetController::class,'AddTrajet'])->name('AddTrajets');
+Route::get('/voiture',[TrajetController::class,'search']);
+
 
 
 

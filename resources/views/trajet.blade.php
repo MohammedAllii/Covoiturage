@@ -37,12 +37,11 @@ margin-top:100px;
     <li><a href="#"></a></li>
       <li><a href="{{url('/accueil')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
       <li><a href="{{url('voiture')}}"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
-      <li><a href="{{url('bus')}}"><i class='fas fa-bus' style='font-size:25px;color:white'></i>  BUS</a></li>
       <li><a href="#"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
 </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="#"><div style="color:yellow;"> {{$data ->nom}}</div></a></li>
+    <li><a href="{{url('profile')}}"><div style="color:yellow;"> {{$data ->nom}}</div></a></li>
       <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>
@@ -92,6 +91,11 @@ margin-top:100px;
                         <label for="date">Date</label>
                         <input type="date" class="form-control" placeholder="Date" name="date" value="{{old('date')}}">
                         <span class="text-danger" >@error('date'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="heure">Heure</label>
+                        <input type="time" class="form-control" placeholder="Time" name="heure" value="{{old('heure')}}">
+                        <span class="text-danger" >@error('heure'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-block btn-primary" type="submit">Publier</button>

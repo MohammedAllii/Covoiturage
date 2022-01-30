@@ -15,6 +15,9 @@ class TrajetController extends Controller
         return view("trajet");
      }
     public function AddTrajet(Request $request){
+        if(Session::has('loginId')){
+            $data=User::where('id','=',Session::get('loginId'))->first();
+        }
         $request->validate([
             'villedep' =>'required',
             'villedes' =>'required',
@@ -30,11 +33,15 @@ class TrajetController extends Controller
        $trajet->marque=$request->marque;
        $trajet->prix=$request->prix;
        $trajet->date=$request->date;
+       $trajet->heure=$request->heure;
+       $trajet->name_user=$data->nom;
+       $trajet->email=$data->email;
+       $trajet->phone=$data->phone;
        $res=$trajet->save();
        if($res){
-            return back()->with('success',"Sahiteeeek");
+            return back()->with('success',"Trajet Ajouter avec Success.");
        }else{
-        return back()->with('fail',"no no baby");
+        return back()->with('fail',"Trajet non ajoutée.");
        }
     }
     public function accueil(){
@@ -60,15 +67,13 @@ class TrajetController extends Controller
         return view('accueil',compact('trajet','data','users','trajets','trajetaujordhui'));
     }
     public function search(Request $request){
+        
         $data=array();
         if(Session::has('loginId')){
             $data=User::where('id','=',Session::get('loginId'))->first();
         }
-        $request->validate([
-            'villedep'=>'required',
-            'villedes'=>'required',
-        ]);
-        $trajett = Trajet::all()->where('villedep','=',$request->villedep)->where('villedes','=',$request->villedes);
-        return view('voiture',compact('trajett','data'));
+        $trajett = Trajet::all()->where('villedep','=',$request->villedep)->where('villedes','=',$request->villedes)->where('date','=',$request->date);
+        
+        return view('/voiture',compact('trajett','data'));
     }
 }

@@ -12,7 +12,7 @@
   
   padding: 3px;
 width: 100%;
-margin-top:100px;
+margin-top:114px;
 }
 #formul{
     margin-top:10%;
@@ -37,8 +37,7 @@ margin-top:100px;
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
       <li><a href="#"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
-      <li><a href="{{url('voiture')}}"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
-      <li><a href="{{url('bus')}}"><i class='fas fa-bus' style='font-size:25px;color:white'></i>  BUS</a></li>
+      <li><a href="{{url('/voiture')}}"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="{{url('inscrit')}}"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
@@ -80,7 +79,7 @@ margin-top:100px;
                     <div class="form-group">
                         <button class="btn btn-block btn-primary" type="submit">Connecter</button>
                     </div>
-                    <a href="">Créer un compte</a>
+                    <a href="{{url('inscrit')}}">Créer un compte</a>
                 </form>
             </div>  
         </div>
@@ -91,13 +90,7 @@ margin-top:100px;
     <div class="container">
        <br>
         
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <a href="mailto:mejrihamouda8@email.com" class="btn btn-info">Envoyer un e-mail</a>
-                <p class="m-t-sm">        
-                </p>    
-            </div>
-        </div>
+        
         <div class="row">
             <div class="col-lg-12 text-center m-t-lg m-b-lg">
                 <p><strong>&copy; 2022 Mejri Mohamed Ali</strong><br/> </p>

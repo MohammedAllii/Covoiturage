@@ -34,13 +34,12 @@ margin-top:210px;
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
       <li><a href="{{url('/accueil')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
-      <li class="active"><a href="{{url('voiture')}}"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
-      <li><a href="{{url('bus')}}"><i class='fas fa-bus' style='font-size:25px;color:white'></i>  BUS</a></li>
+      <li class="active"><a href="/voiture"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
       <li><a href="{{url('trajet')}}"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
 
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="#"><div style="color:yellow;">{{$data ->nom}}</div></a></li>
+    <li><a href="{{url('profile')}}"><div style="color:yellow;">{{$data ->nom}}</div></a></li>
       <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>
@@ -78,18 +77,22 @@ margin-top:210px;
                         <span class="text-danger" >@error('villedes'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" placeholder="Date" name="date" value="{{old('date')}}">
+                        <span class="text-danger" >@error('date'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
                         <button class="btn btn-block btn-primary" type="submit">Chercher</button>
                     </div>
                 </form>
 </div></div></div>
     </div>
     <br>
-    @foreach($trajett as $trajets)
     <section class="gray-section">
 <div class="text text-center">
     <h1>Our trajets !</h1>
 </div>
-
+@foreach($trajett as $trajets)
 <div class="container p-5 my-5 text-white" style="background-image:url('/images/bg.jpg');background-size:cover;color:#000000;border-radius:5px;border:#000000 1px solid;">
 <div class="text text-left">
 <h3> <span class="glyphicon glyphicon-map-marker" style="color:red;"> {{$trajets->villedep}}</span> ----><span class="glyphicon glyphicon-map-marker" style="color:green;">  {{$trajets->villedes}}</span></h3>
@@ -98,10 +101,10 @@ margin-top:210px;
 <h3><div class="fa fa-money">  Prix:  <span style="color:red;">{{$trajets->prix}} Dt</span></div></h3>
     <h3><div class='fas fa-wheelchair'>  Places : <span style="color:red;">{{$trajets->nbp}} </span></div></h3>
     <h3><div class='fas fa-car'>  Marque  : <span style="color:red;"> {{$trajets->marque}}</span></div></h3>
-    <h3><div class='fas fa-clock'>  Date  : <span style="color:red;"> {{$trajets->date}}</span></div></h3><br>
+    <h3><div class='fas fa-clock'>  Date  : <span style="color:red;"> {{$trajets->date}}&nbsp;&nbsp;{{$trajets->heure}}</span></div></h3><br>
   </div>
 <div class="text text-center">
-<button class="btn btn-success">Détails</button>
+<button class="btn btn-info">Détails</button>
 </div>
 <br>
 </div>

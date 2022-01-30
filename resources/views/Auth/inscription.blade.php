@@ -37,7 +37,6 @@ margin-top:100px;
     <li><a href="#"></a></li>
       <li><a href="{{url('/')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
       <li><a href="{{url('voiture')}}"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
-      <li><a href="{{url('bus')}}"><i class='fas fa-bus' style='font-size:25px;color:white'></i>  BUS</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="{{url('inscrit')}}"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
@@ -89,7 +88,7 @@ margin-top:100px;
                     <div class="form-group">
                         <button class="btn btn-block btn-primary" type="submit">S'inscrire</button>
                     </div>
-                    <a href="">J'ai déja un compte</a>
+                    <a href="{{url('cnx')}}">J'ai déja un compte</a>
                 </form>
             </div>  
         </div>
