@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TrajetController;
+use App\Http\Controllers\ProfileController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +28,10 @@ Route::post('/register',[AuthController::class,'inscription'])->name('register')
 Route::post('/login',[AuthController::class,'connexion'])->name('login');
 Route::post('/AddTrajets',[TrajetController::class,'AddTrajet'])->name('AddTrajets');
 Route::get('/voiture',[TrajetController::class,'search']);
+Route::get('/profile',[ProfileController::class,'profile']);
+Route::post('/update',[ProfileController::class,'update'])->name('update');
+
+
 
 
 

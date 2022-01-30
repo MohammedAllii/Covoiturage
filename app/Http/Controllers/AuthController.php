@@ -38,9 +38,9 @@ class AuthController extends Controller
        $user->password=Hash::make($request->password);
        $res=$user->save();
        if($res){
-            return back()->with('success',"Sahiteeeek");
+            return back()->with('success',"Bravo");
        }else{
-        return back()->with('fail',"no no baby");
+        return back()->with('fail',"no no ");
        }
     }
     public function connexion(Request $request){
