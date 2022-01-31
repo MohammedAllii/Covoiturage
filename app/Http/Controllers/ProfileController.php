@@ -28,7 +28,7 @@ class ProfileController extends Controller
         'phone'=>$request->phone,
         'password'=>Hash::make($request->password)
         ]);
- 
+ return redirect('profile')->with('success','bravoooooo');
     }
     public function delete($id){
       $supp=Trajet::find($id);

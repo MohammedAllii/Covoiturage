@@ -109,14 +109,14 @@ width: 100%;
     <h3><div class='fas fa-wheelchair'>  Places : <span style="color:red;">{{$trajets->nbp}} </span></div></h3>
     <h3><div class='fas fa-car'>  Marque  : <span style="color:red;"> {{$trajets->marque}}</span></div></h3>
     <h3><div class='fas fa-clock'>  Date  : <span style="color:red;"> {{$trajets->date}}&nbsp;&nbsp;{{$trajets->heure}}</span></div></h3>
-      <div class="hide">
+      <div class="hidea">
         <h3><div class='fas fa-male'>  Publier par  : <span style="color:red;"> {{$trajets->name_user}}</span></div></h3>
         <h3><div class='fas fa-phone'>  Télephone  : <span style="color:red;"> {{$trajets->phone}}</span></div></h3>
         <h3><div class='fas fa-envelope'>  Email  : <span style="color:red;"> {{$trajets->email}}</span></div></h3>
       </div>
    </div>
 <div class="text text-right">
-<button class="btn btn-primary" class="show">Plus Détails</button>
+<button class="btn btn-primary"><div class="showa">Plus Détails</div></button>
 <button class="btn btn-success">Réserver</button>
 </div>
 <br>
@@ -145,9 +145,10 @@ width: 100%;
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script>
+  $(".hidea").hide();
      $(document).ready(function(){
-            $(".show").click(function(){
-            $(".hide").toggle(1000);
+            $(".showa").click(function(){
+            $(".hidea").toggle(1000);
             });});
 </script>
 </body>
