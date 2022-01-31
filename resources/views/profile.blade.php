@@ -37,9 +37,10 @@ margin-top:100px;
     <li><a href="#"></a></li>
       <li><a href="{{url('/accueil')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
       <li><a href="{{url('voiture')}}"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
+      <li><a href="{{url('trajet')}}"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="{{url('profile')}}"><div style="color:yellow;">{{$data ->nom}}</div></a></li>
+    <li style="color:white";>WELCOME <a href="{{url('profile')}}"><div style="color:yellow;">{{$data ->nom}}</div></a></li>
       <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>
@@ -50,9 +51,9 @@ margin-top:100px;
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4" style="margin-top:70px;">
-                <h2><g>Mon Profile</g></h2>
+                <h2 id="oui" class='fas fa-edit'><g>Mon Profile</g></h2>
                 <hr>
-                <form action="{{Route('update')}}" method="post">
+                <form action="{{Route('update')}}" method="post" id="non">
                     @if(Session::has('success'))
                     <div class="alert alert-success">{{Session::get('success')}}</div>
                     @endif
@@ -89,14 +90,43 @@ margin-top:100px;
                         <span class="text-danger" >@error('password'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-block btn-primary" type="submit">Modifier</button>
+                        <button class="btn btn-primary" type="submit">Modifier</button>
                     </div>
                 </form>
             </div>  
         </div>
     </div>
 </section>
-    <br><br><br><br>
+    <br><br>
+    <section class="gray-section">
+<div class="text text-center">
+    <h1>Mes Annonces</h1>
+</div>
+@foreach($trajet as $trajets)
+<div class="container p-5 my-5 text-white" style="background-image:url('/images/bg.jpg');background-size:cover;color:#000000;border-radius:5px;border:#000000 1px solid;">
+<div class="text text-left">
+<h3> <span class="glyphicon glyphicon-map-marker" style="color:red;"> {{$trajets->villedep}}</span> ----><span class="glyphicon glyphicon-map-marker" style="color:green;">  {{$trajets->villedes}}</span></h3>
+</div>
+<div class="text text-right">
+<h3><div class="fa fa-money">  Prix:  <span style="color:red;">{{$trajets->prix}} Dt</span></div></h3>
+    <h3><div class='fas fa-wheelchair'>  Places : <span style="color:red;">{{$trajets->nbp}} </span></div></h3>
+    <h3><div class='fas fa-car'>  Marque  : <span style="color:red;"> {{$trajets->marque}}</span></div></h3>
+    <h3><div class='fas fa-clock'>  Date  : <span style="color:red;"> {{$trajets->date}}&nbsp;&nbsp;{{$trajets->heure}}</span></div></h3>
+    <input type="hidden" value="{{$trajets->id}}" name="ids">
+    
+   </div>
+<div class="text text-right">
+<a href="deletes{{$trajets->id}}" class="btn btn-danger">Supprimer</a>
+    <button class="btn btn-warning">Modifier</button>
+</div>
+<br>
+</div>
+<br>
+@endforeach
+<br>
+
+
+</section>
 <!--footer-->
 <section id="contact" class="bg-info" >
     <div class="container">
@@ -111,5 +141,12 @@ margin-top:100px;
         </div>
     </div>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script>
+    $("#non").hide();
+$(document).ready(function(){
+  $("#oui").click(function(){
+    $("#non").toggle(1000);});});
+    </script>
 </body>
 </html>

@@ -17,7 +17,8 @@ class ProfileController extends Controller
         if(Session::has('loginId')){
             $data=User::where('id','=',Session::get('loginId'))->first();
         }
-        return view('profile',compact('data'));
+        $trajet = Trajet::all()->where('name_user','=',$data->nom);
+        return view('profile',compact('data','trajet'));
     }
     public function update(Request $request){
         $post = User::where('id','=',$request->id)->update([
@@ -27,13 +28,13 @@ class ProfileController extends Controller
         'phone'=>$request->phone,
         'password'=>Hash::make($request->password)
         ]);
-        if($post){
-        return back()->with('success',"Bravooo");}
-        else{
-            return back()->with('fail',"Nooooon");}
-
-        }
-
+ 
     }
+    public function delete($id){
+      $supp=Trajet::find($id);
+      $supp->delete();
+      return redirect('profile')->with('success','ouiiiiiii');
+    }
+}
     
 

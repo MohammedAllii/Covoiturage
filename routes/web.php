@@ -30,6 +30,7 @@ Route::post('/AddTrajets',[TrajetController::class,'AddTrajet'])->name('AddTraje
 Route::get('/voiture',[TrajetController::class,'search']);
 Route::get('/profile',[ProfileController::class,'profile']);
 Route::post('/update',[ProfileController::class,'update'])->name('update');
+Route::get('/deletes{id}',[ProfileController::class,'delete']);
 
 
 
