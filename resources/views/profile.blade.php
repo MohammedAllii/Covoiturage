@@ -40,7 +40,7 @@ margin-top:100px;
       <li><a href="{{url('trajet')}}"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li style="color:white";>WELCOME <a href="{{url('profile')}}"><div style="color:yellow;">{{$data ->nom}}</div></a></li>
+     <li><a href="{{url('profile')}}"><i class='fas fa-user-edit' class="open-button" style='font-size:25px;color:white'></i> {{$data ->nom}}</a></li>
       <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>
@@ -50,10 +50,30 @@ margin-top:100px;
 <section class="gray-section" >
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4" style="margin-top:70px;">
-                <h2 id="oui" class='fas fa-edit'><g>Mon Profile</g></h2>
+            <div class="col-md-4 col-lg-offset-4" style="margin-top:70px;">
+                <h2 class='fas fa-list'><g> Mon Profile</g></h2>
                 <hr>
-                <form action="{{Route('update')}}" method="post" id="non">
+                <h3><span style="font-size:30;color:#0097FF;" class='fas fa-id-card'> Nom Complet </span> <br>{{$data->nom}}</h3><hr>
+                <h3><span style="font-size:30;color:#0097FF;" class="fa fa-envelope"> Email  </span><br> {{$data->email}}</h3><hr>
+                <h3><span style="font-size:30;color:#0097FF;" class="fas fa-birthday-cake"> Age : </span> {{$data->age}}</h3><hr>
+                <h3><span style="font-size:30;color:#0097FF;" class="fas fa-phone"> Télephone :</span> {{$data->phone}}</h3><hr>
+                <h3><span style="font-size:30;color:#0097FF;" class="fas fa-check-square"> Annonces publiée : </span> {{$trajett}}</h3>
+                <h2 class='fas fa-edit' id="oui" data-toggle="modal" data-target="#myModal"><g>Edit Profile</g></h2>
+
+
+
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modifier profile</h4>
+        </div>
+        <div class="modal-body">
+          
+        <form action="{{Route('update')}}" method="post" id="non">
                     @if(Session::has('success'))
                     <div class="alert alert-success">{{Session::get('success')}}</div>
                     @endif
@@ -65,7 +85,7 @@ margin-top:100px;
                         <input type="hidden" class="form-control"  name="id" value="{{$data->id}}">
                     </div>
                     <div class="form-group">
-                        <label for="name">Nom Complet</label>
+                        <label for="name">Nom Complet : </label>
                         <input type="text" class="form-control" placeholder="Entrer votre nom complet" name="nom" value="{{$data->nom}}">
                         <span class="text-danger" >@error('nom'){{$message}} @enderror</span>
                     </div>
@@ -93,6 +113,15 @@ margin-top:100px;
                         <button class="btn btn-primary" type="submit">Modifier</button>
                     </div>
                 </form>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+                
             </div>  
         </div>
     </div>
@@ -100,8 +129,9 @@ margin-top:100px;
     <br><br>
     <section class="gray-section">
 <div class="text text-center">
-    <h1>Mes Annonces</h1>
+    <h1 class="ouii">Mes Annonces</h1>
 </div>
+<div class="nonn">
 @foreach($trajet as $trajets)
 <div class="container p-5 my-5 text-white" style="background-image:url('/images/bg.jpg');background-size:cover;color:#000000;border-radius:5px;border:#000000 1px solid;">
 <div class="text text-left">
@@ -124,6 +154,7 @@ margin-top:100px;
 <br>
 @endforeach
 <br>
+</div>
 
 
 </section>
@@ -143,10 +174,11 @@ margin-top:100px;
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script>
-    $("#non").hide();
+    
+    $("#nonn").hide();
 $(document).ready(function(){
-  $("#oui").click(function(){
-    $("#non").toggle(1000);});});
+  $(".ouii").click(function(){
+    $(".nonn").toggle(1000);});});
     </script>
 </body>
 </html>

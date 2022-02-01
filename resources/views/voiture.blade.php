@@ -39,7 +39,7 @@ margin-top:210px;
 
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="{{url('profile')}}"><div style="color:yellow;">{{$data ->nom}}</div></a></li>
+    <li><a href="{{url('profile')}}"><i class='fas fa-user-edit' class="open-button" style='font-size:25px;color:white'></i> {{$data ->nom}}</a></li>
       <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>

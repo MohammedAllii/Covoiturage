@@ -38,7 +38,7 @@ width: 100%;
 </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li style="color:white";>WELCOME <a href="{{url('profile')}}"><div style="color:yellow;">{{$data ->nom}}</div></a></li>
+    <li><a href="{{url('profile')}}"><i class='fas fa-user-edit' class="open-button" style='font-size:25px;color:white'></i> {{$data ->nom}}</a></li>
       <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>
@@ -117,7 +117,7 @@ width: 100%;
    </div>
 <div class="text text-right">
 <button class="btn btn-primary"><div class="showa">Plus Détails</div></button>
-<button class="btn btn-success">Réserver</button>
+<a href="reserver"><button class="btn btn-success">Réserver</button></a>
 </div>
 <br>
 </div>
@@ -148,7 +148,7 @@ width: 100%;
   $(".hidea").hide();
      $(document).ready(function(){
             $(".showa").click(function(){
-            $(".hidea").toggle(1000);
+            $(".hidea").toggle(500);
             });});
 </script>
 </body>

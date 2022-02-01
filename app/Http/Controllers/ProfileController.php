@@ -17,8 +17,9 @@ class ProfileController extends Controller
         if(Session::has('loginId')){
             $data=User::where('id','=',Session::get('loginId'))->first();
         }
-        $trajet = Trajet::all()->where('name_user','=',$data->nom);
-        return view('profile',compact('data','trajet'));
+        $trajett = Trajet::all()->where('user_id','=',$data->id)->count();
+        $trajet = Trajet::all()->where('user_id','=',$data->id);
+        return view('profile',compact('data','trajet','trajett'));
     }
     public function update(Request $request){
         $post = User::where('id','=',$request->id)->update([
@@ -35,6 +36,7 @@ class ProfileController extends Controller
       $supp->delete();
       return redirect('profile')->with('success','ouiiiiiii');
     }
+    
 }
     
 

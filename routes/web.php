@@ -31,6 +31,7 @@ Route::get('/voiture',[TrajetController::class,'search']);
 Route::get('/profile',[ProfileController::class,'profile']);
 Route::post('/update',[ProfileController::class,'update'])->name('update');
 Route::get('/deletes{id}',[ProfileController::class,'delete']);
+Route::get('/reserver',[TrajetController::class,'reserver']);
 
 
 

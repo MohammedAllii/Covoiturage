@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Trajet;
 use Session;
 use App\User;
+use App\Reservation;
 use App\Http\Controllers\AuthController;
 use Carbon\Carbon;
 
@@ -35,6 +36,7 @@ class TrajetController extends Controller
        $trajet->date=$request->date;
        $trajet->heure=$request->heure;
        $trajet->name_user=$data->nom;
+       $trajet->user_id=$data->id;
        $trajet->email=$data->email;
        $trajet->phone=$data->phone;
        $res=$trajet->save();
@@ -75,5 +77,17 @@ class TrajetController extends Controller
         $trajett = Trajet::all()->where('villedep','=',$request->villedep)->where('villedes','=',$request->villedes)->where('date','=',$request->date);
         
         return view('/voiture',compact('trajett','data'));
+    }
+    public function reserver(){
+        $data=array();
+        if(Session::has('loginId')){
+            $data=User::where('id','=',Session::get('loginId'))->first();
+        }
+        $trajet=array();
+        $trajet=Trajet::where('user_id',$data->id)->get();
+       $result = new Reservation();
+       $result->id_user=$data->id;
+       $result=$result->save();
+       return redirect('profile');
     }
 }
