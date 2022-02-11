@@ -52,9 +52,10 @@ margin-top:100px;
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4" style="margin-top:70px;">
-                <h2><g>Publier un trajet</g></h2>
+                <h2><g>Modifier trajet</g></h2>
                 <hr>
-                <form action="{{Route('AddTrajets')}}" method="post">
+                @foreach($trajet as $trajets)
+                <form action="{{Route('updatetrajet')}}" method="post">
                     @if(Session::has('success'))
                     <div class="alert alert-success">{{Session::get('success')}}</div>
                     @endif
@@ -63,45 +64,50 @@ margin-top:100px;
                     @endif
                     @csrf
                     <div class="form-group">
+                        <input type="hidden" class="form-control"  name="id" value="{{$trajets->id}}">
+                    </div>
+                    <div class="form-group">
                         <label for="villedep">Ville Depart</label>
-                        <input type="text" class="form-control" placeholder="Votre ville de depart" name="villedep" value="{{old('villedep')}}">
+                        <input type="text" class="form-control" placeholder="Votre ville de depart" name="villedep" value="{{$trajets->villedep}}">
                         <span class="text-danger" >@error('villedep'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="villedes">Ville destination</label>
-                        <input type="text" class="form-control" placeholder="Votre ville de destination" name="villedes" value="{{old('villedes')}}">
+                        <input type="text" class="form-control" placeholder="Votre ville de destination" name="villedes" value="{{$trajets->villedes}}">
                         <span class="text-danger" >@error('villedes'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="nbp">Nombre de place</label>
-                        <input type="number" class="form-control" placeholder="Nombre de place" name="nbp" value="{{old('nbp')}}">
+                        <input type="number" class="form-control" placeholder="Nombre de place" name="nbp" value="{{$trajets->nbp}}">
                         <span class="text-danger" >@error('nbp'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="marque">Marque voiture</label>
-                        <input type="text" class="form-control" placeholder="Marque du voiture" name="marque" value="{{old('marque')}}">
+                        <input type="text" class="form-control" placeholder="Marque du voiture" name="marque" value="{{$trajets->marque}}">
                         <span class="text-danger" >@error('marque'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="prix">Prix</label>
-                        <input type="number" class="form-control" placeholder="Prix pour chaque place" name="prix" value="{{old('prix')}}">
+                        <input type="number" class="form-control" placeholder="Prix pour chaque place" name="prix" value="{{$trajets->prix}}">
                         <span class="text-danger" >@error('prix'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="date">Date</label>
-                        <input type="date" class="form-control" placeholder="Date" name="date" value="{{old('date')}}">
+                        <input type="date" class="form-control" placeholder="Date" name="date" value="{{$trajets->date}}">
                         <span class="text-danger" >@error('date'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="heure">Heure</label>
-                        <input type="time" class="form-control" placeholder="Time" name="heure" value="{{old('heure')}}">
+                        <input type="time" class="form-control" placeholder="Time" name="heure" value="{{$trajets->heure}}">
                         <span class="text-danger" >@error('heure'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-block btn-primary" type="submit">Publier</button>
+                        <button class="btn btn-block btn-primary" type="submit">Modifier</button>
                     </div>
                 </form>
             </div>  
+            @endforeach
+
         </div>
     </div>
 </section>

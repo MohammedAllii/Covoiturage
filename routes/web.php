@@ -17,7 +17,7 @@ use App\Http\Controllers\ProfileController;
 */
 
 
-Route::get('/',function(){return view('index');});
+Route::get('/',[AuthController::class,'login']);
 Route::get('/trajet',function(){return view('trajet');});
 Route::get('/cnx',[AuthController::class,'login']);
 Route::get('/decocnx',[AuthController::class,'logout']);
@@ -31,7 +31,10 @@ Route::get('/voiture',[TrajetController::class,'search']);
 Route::get('/profile',[ProfileController::class,'profile']);
 Route::post('/update',[ProfileController::class,'update'])->name('update');
 Route::get('/deletes{id}',[ProfileController::class,'delete']);
+Route::get('/modifier{id}',[ProfileController::class,'modifierTrajet']);
 Route::get('/reserver',[TrajetController::class,'reserver']);
+Route::post('/updatetrajet',[ProfileController::class,'updateTrajet'])->name('updatetrajet');
+
 
 
 

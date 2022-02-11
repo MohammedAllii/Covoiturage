@@ -36,6 +36,13 @@ class AuthController extends Controller
        $user->age=$request->age;
        $user->phone=$request->phone;
        $user->password=Hash::make($request->password);
+       if($request->hasfile('photo')){
+           $file=$request->file('photo');
+           $extension=$file->getClientOriginalExtension();
+           $filename=time().'.'.$extension;
+           $file->move('images/',$filename);
+           $user->photo=$filename;
+       }
        $res=$user->save();
        if($res){
             return back()->with('success',"Bravo");

@@ -66,6 +66,7 @@ class TrajetController extends Controller
         $trajet=array();
         $trajet=Trajet::where('date',$date)->get();
         $trajetaujordhui = Trajet::where('date',$date)->count();
+        
         return view('accueil',compact('trajet','data','users','trajets','trajetaujordhui'));
     }
     public function search(Request $request){
@@ -84,10 +85,20 @@ class TrajetController extends Controller
             $data=User::where('id','=',Session::get('loginId'))->first();
         }
         $trajet=array();
-        $trajet=Trajet::where('user_id',$data->id)->get();
-       $result = new Reservation();
-       $result->id_user=$data->id;
-       $result=$result->save();
-       return redirect('profile');
-    }
+        $trajet=Trajet::where('user_id',$data->id)->first();
+        $result = new Reservation();
+        $result->id_user=$data->id;
+        $result->id_trajet=$trajet->id;
+        $result=$result->save();
+        $reserv=Reservation::where('id_trajet',$trajet->id)->count();
+        if($reserv = $trajet->nbp){
+            $postes = Trajet::where('id','=',$trajet->id)->update([
+                'nbp'=>$trajet->nbp-1]);
+                return back()->with('success',"reservation effectuer avec success .");
+
+            }else{
+            return back()->with('fail',"nombre de place c bon.");
+        }
+       
+       return back()->with('success',"bravooo");    }
 }

@@ -58,9 +58,7 @@ width: 100%;
         <img src="/images/bg4.jpg"  style="width:100%;height:80%;">
       </div>
 
-      <div class="item">
-        <img src="/images/bg3.jpg"  style="width:100%;height:80%;">
-      </div>
+     
     
     </div>
 
@@ -94,6 +92,7 @@ width: 100%;
   </thead>
 </table>
 </section>
+
     <br>
 <section class="gray-section">
 <div class="text text-center">
@@ -101,10 +100,21 @@ width: 100%;
 </div>
 @foreach($trajet as $trajets)
 <div class="container p-5 my-5 text-white" style="background-image:url('/images/bg.jpg');background-size:cover;color:#000000;border-radius:5px;border:#000000 1px solid;">
-<div class="text text-left">
+<div class="text text-center">
 <h3> <span class="glyphicon glyphicon-map-marker" style="color:red;"> {{$trajets->villedep}}</span> ----><span class="glyphicon glyphicon-map-marker" style="color:green;">  {{$trajets->villedes}}</span></h3>
 </div>
-<div class="text text-right">
+@if(Session::has('success'))
+                    <div class="text text-center">
+                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                    </div>
+                    @endif
+                    @if(Session::has('fail'))
+                    <div class="text text-center">
+
+                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                    </div>
+                    @endif
+<div class="text text-left">
 <h3><div class="fa fa-money">  Prix:  <span style="color:red;">{{$trajets->prix}} Dt</span></div></h3>
     <h3><div class='fas fa-wheelchair'>  Places : <span style="color:red;">{{$trajets->nbp}} </span></div></h3>
     <h3><div class='fas fa-car'>  Marque  : <span style="color:red;"> {{$trajets->marque}}</span></div></h3>
@@ -129,15 +139,15 @@ width: 100%;
 </section>
     <br>
 <!--footer-->
-<section id="contact" class="bg-info" >
+<section id="contact" style="background-color:#000000;" >
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center m-t-lg m-b-lg">
               <br>
-            <a href="https://www.facebook.com/med.ali.mejri4/" target="_blank"><i class="fab fa-facebook-square" style='font-size:25px;color:black'></i></a>
-                <a href="https://www.linkedin.com/in/m%C3%A9jri-mohamed-ali-7137011ba/" target="_blank"><i class="fab fa-linkedin" style='font-size:25px;color:black'></i></a>
-                <a href="https://www.instagram.com/hamouda_mejrii/?hl=fr" target="_blank"><i class="fab fa-instagram" style='font-size:25px;color:black'></i></a>
-                <p><strong>&copy; 2022 Mejri Mohamed Ali</strong><br/> </p>
+            <a href="https://www.facebook.com/med.ali.mejri4/" target="_blank"><i class="fab fa-facebook-square" style='font-size:25px;color:white'></i></a>
+                <a href="https://www.linkedin.com/in/m%C3%A9jri-mohamed-ali-7137011ba/" target="_blank"><i class="fab fa-linkedin" style='font-size:25px;color:white'></i></a>
+                <a href="https://www.instagram.com/hamouda_mejrii/?hl=fr" target="_blank"><i class="fab fa-instagram" style='font-size:25px;color:white'></i></a>
+                <p style="color:#FFFFFF;"><strong>&copy; 2022 Mejri Mohamed Ali</strong><br/> </p>
                 
             </div>
         </div>

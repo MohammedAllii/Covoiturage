@@ -36,7 +36,7 @@ margin-top:100px;
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
       <li><a href="{{url('/')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
-      <li><a href="{{url('voiture')}}"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
+      <li><a href="#"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="{{url('inscrit')}}"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
@@ -52,7 +52,7 @@ margin-top:100px;
             <div class="col-md-4 col-md-offset-4" style="margin-top:70px;">
                 <h2><g>S'inscrire</g></h2>
                 <hr>
-                <form action="{{Route('register')}}" method="post">
+                <form action="{{Route('register')}}" method="post" enctype="multipart/form-data">
                     @if(Session::has('success'))
                     <div class="alert alert-success">{{Session::get('success')}}</div>
                     @endif
@@ -86,6 +86,11 @@ margin-top:100px;
                         <span class="text-danger" >@error('password'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
+                        <label for="password">Votre Photo</label>
+                        <input type="file" class="form-control" placeholder="Mettre votre photo" name="photo" value="{{old('photo')}}">
+                        <span class="text-danger" >@error('photo'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
                         <button class="btn btn-block btn-primary" type="submit">S'inscrire</button>
                     </div>
                     <a href="{{url('cnx')}}">J'ai déja un compte</a>
@@ -96,15 +101,16 @@ margin-top:100px;
 </section>
     <br><br><br><br>
 <!--footer-->
-<section id="contact" class="bg-info" >
+<section id="contact" style="background-color:#000000;" >
     <div class="container">
-       <br>
         <div class="row">
             <div class="col-lg-12 text-center m-t-lg m-b-lg">
-                <p><strong>&copy; 2022 Mejri Mohamed Ali</strong><br/> </p>
-                <a href="https://www.facebook.com/med.ali.mejri4/" target="_blank"><i class="fab fa-facebook-square" style='font-size:25px;color:black'></i></a>
-                <a href="https://www.linkedin.com/in/m%C3%A9jri-mohamed-ali-7137011ba/" target="_blank"><i class="fab fa-linkedin" style='font-size:25px;color:black'></i></a>
-                <a href="https://www.instagram.com/hamouda_mejrii/?hl=fr" target="_blank"><i class="fab fa-instagram" style='font-size:25px;color:black'></i></a>
+              <br>
+            <a href="https://www.facebook.com/med.ali.mejri4/" target="_blank"><i class="fab fa-facebook-square" style='font-size:25px;color:white'></i></a>
+                <a href="https://www.linkedin.com/in/m%C3%A9jri-mohamed-ali-7137011ba/" target="_blank"><i class="fab fa-linkedin" style='font-size:25px;color:white'></i></a>
+                <a href="https://www.instagram.com/hamouda_mejrii/?hl=fr" target="_blank"><i class="fab fa-instagram" style='font-size:25px;color:white'></i></a>
+                <p style="color:#FFFFFF;"><strong>&copy; 2022 Mejri Mohamed Ali</strong><br/> </p>
+                
             </div>
         </div>
     </div>

@@ -22,19 +22,54 @@ class ProfileController extends Controller
         return view('profile',compact('data','trajet','trajett'));
     }
     public function update(Request $request){
-        $post = User::where('id','=',$request->id)->update([
-        'nom'=>$request->nom,
-        'email'=>$request->email,
-        'age'=>$request->age,
-        'phone'=>$request->phone,
-        'password'=>Hash::make($request->password)
-        ]);
+        $user = User::find($request->id);
+        $user->nom=$request->nom;
+       $user->email=$request->email;
+       $user->age=$request->age;
+       $user->phone=$request->phone;
+       $user->password=Hash::make($request->password);
+       if($request->hasfile('photo')){
+           $destionation='images/'.$user->photo;
+           if(File::exists($destionation)){
+               File::delete($destionation);
+           }
+        
+           $file=$request->file('photo');
+           $extension=$file->getClientOriginalExtension();
+           $filename=time().'.'.$extension;
+           $file->move('images/',$filename);
+           $user->photo=$filename;
+       }
+       $user->update();
+        
  return redirect('profile')->with('success','bravoooooo');
     }
     public function delete($id){
       $supp=Trajet::find($id);
       $supp->delete();
       return redirect('profile')->with('success','ouiiiiiii');
+    }
+    public function modifierTrajet($id){
+        $data=array();
+        if(Session::has('loginId')){
+            $data=User::where('id','=',Session::get('loginId'))->first();
+        }
+        $trajet=Trajet::where('id','=',$id)->get();
+        return view('modifierTrajet',compact('data','trajet'));
+    }
+    public function updateTrajet(Request $request ){
+        $posts = Trajet::where('id','=',$request->id)->update([
+        'villedep'=>$request->villedep,
+        'villedes'=>$request->villedes,
+        'prix'=>$request->prix,
+        'date'=>$request->date,
+        'heure'=>$request->heure,
+        'nbp'=>$request->nbp,
+        'marque'=>$request->marque
+        
+        ]);
+        return redirect('profile')->with('success','bravoooooo');
+
     }
     
 }

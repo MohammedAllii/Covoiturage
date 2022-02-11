@@ -50,15 +50,18 @@ margin-top:100px;
 <section class="gray-section" >
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-lg-offset-4" style="margin-top:70px;">
-                <h2 class='fas fa-list'><g> Mon Profile</g></h2>
+            <div class="col-md-6" style="margin-top:70px;">
+                <h2 class='fas fa-list' style="font-size:30;color:#000000;"><g> Mon Profile</g></h2>
                 <hr>
-                <h3><span style="font-size:30;color:#0097FF;" class='fas fa-id-card'> Nom Complet </span> <br>{{$data->nom}}</h3><hr>
-                <h3><span style="font-size:30;color:#0097FF;" class="fa fa-envelope"> Email  </span><br> {{$data->email}}</h3><hr>
-                <h3><span style="font-size:30;color:#0097FF;" class="fas fa-birthday-cake"> Age : </span> {{$data->age}}</h3><hr>
-                <h3><span style="font-size:30;color:#0097FF;" class="fas fa-phone"> Télephone :</span> {{$data->phone}}</h3><hr>
-                <h3><span style="font-size:30;color:#0097FF;" class="fas fa-check-square"> Annonces publiée : </span> {{$trajett}}</h3>
-                <h2 class='fas fa-edit' id="oui" data-toggle="modal" data-target="#myModal"><g>Edit Profile</g></h2>
+
+                <img src="/images/{{$data->photo}}" width="150px" height="150px" style="border-radius:80px;">
+                <h3><span style="font-size:30;color:#000000;" class='fas fa-id-card'> Nom Complet :</span> {{$data->nom}}</h3><hr>
+                <h3><span style="font-size:30;color:#000000;" class="fa fa-envelope"> Email  :</span> {{$data->email}}</h3><hr>
+                <h3><span style="font-size:30;color:#000000;" class="fas fa-birthday-cake"> Age : </span> {{$data->age}}</h3><hr>
+                <h3><span style="font-size:30;color:#000000;" class="fas fa-phone"> Télephone :</span> {{$data->phone}}</h3><hr>
+                <h3><span style="font-size:30;color:#000000;" class="fas fa-check-square"> Annonces publiée : </span> {{$trajett}}</h3>
+                
+                <h2 class='fas fa-edit' data-toggle="modal" data-target="#myModal"><g>Edit Profile</g></h2>
 
 
 
@@ -106,8 +109,13 @@ margin-top:100px;
                     </div>
                     <div class="form-group">
                         <label for="password">Mot de Passe</label>
-                        <input type="password" class="form-control" placeholder="Entrer votre mot de passe" name="password" value="{{$data->password}}">
+                        <input type="password" class="form-control" placeholder="Entrer votre mot de passe" name="password" ">
                         <span class="text-danger" >@error('password'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Photo de profile</label>
+                        <input type="file" class="form-control"  name="photo" value="{{$data->photo}}">
+                        <span class="text-danger" >@error('photo'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary" type="submit">Modifier</button>
@@ -146,8 +154,8 @@ margin-top:100px;
     
    </div>
 <div class="text text-right">
-<a href="deletes{{$trajets->id}}" class="btn btn-danger">Supprimer</a>
-    <button class="btn btn-warning">Modifier</button>
+<a href="deletes{{$trajets->id}}" class="btn btn-danger" >Supprimer</a>
+    <a href="modifier{{$trajets->id}}" class="btn btn-info" >Modifier</a>
 </div>
 <br>
 </div>
@@ -157,17 +165,23 @@ margin-top:100px;
 </div>
 
 
+
+
+
+
+
 </section>
 <!--footer-->
-<section id="contact" class="bg-info" >
+<section id="contact" style="background-color:#000000;" >
     <div class="container">
-       <br>
         <div class="row">
             <div class="col-lg-12 text-center m-t-lg m-b-lg">
-                <p><strong>&copy; 2022 Mejri Mohamed Ali</strong><br/> </p>
-                <a href="https://www.facebook.com/med.ali.mejri4/" target="_blank"><i class="fab fa-facebook-square" style='font-size:25px;color:black'></i></a>
-                <a href="https://www.linkedin.com/in/m%C3%A9jri-mohamed-ali-7137011ba/" target="_blank"><i class="fab fa-linkedin" style='font-size:25px;color:black'></i></a>
-                <a href="https://www.instagram.com/hamouda_mejrii/?hl=fr" target="_blank"><i class="fab fa-instagram" style='font-size:25px;color:black'></i></a>
+              <br>
+            <a href="https://www.facebook.com/med.ali.mejri4/" target="_blank"><i class="fab fa-facebook-square" style='font-size:25px;color:white'></i></a>
+                <a href="https://www.linkedin.com/in/m%C3%A9jri-mohamed-ali-7137011ba/" target="_blank"><i class="fab fa-linkedin" style='font-size:25px;color:white'></i></a>
+                <a href="https://www.instagram.com/hamouda_mejrii/?hl=fr" target="_blank"><i class="fab fa-instagram" style='font-size:25px;color:white'></i></a>
+                <p style="color:#FFFFFF;"><strong>&copy; 2022 Mejri Mohamed Ali</strong><br/> </p>
+                
             </div>
         </div>
     </div>
@@ -175,7 +189,7 @@ margin-top:100px;
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script>
     
-    $("#nonn").hide();
+    $(".nonn").hide();
 $(document).ready(function(){
   $(".ouii").click(function(){
     $(".nonn").toggle(1000);});});
