@@ -8,6 +8,7 @@ use Session;
 use App\User;
 use App\Http\Controllers\AuthController;
 use Hash;
+use Illuminate\Support\Facades\File;
 
 
 class ProfileController extends Controller
@@ -29,9 +30,9 @@ class ProfileController extends Controller
        $user->phone=$request->phone;
        $user->password=Hash::make($request->password);
        if($request->hasfile('photo')){
-           $destionation='images/'.$user->photo;
-           if(File::exists($destionation)){
-               File::delete($destionation);
+           $destination='images/'.$user->photo;
+           if(File::exists($destination)){
+               File::delete($destination);
            }
         
            $file=$request->file('photo');

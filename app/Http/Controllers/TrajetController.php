@@ -41,7 +41,7 @@ class TrajetController extends Controller
        $trajet->phone=$data->phone;
        $res=$trajet->save();
        if($res){
-            return back()->with('success',"Trajet Ajouter avec Success.");
+        return redirect('accueil');
        }else{
         return back()->with('fail',"Trajet non ajoutée.");
        }
@@ -66,8 +66,13 @@ class TrajetController extends Controller
         $trajet=array();
         $trajet=Trajet::where('date',$date)->get();
         $trajetaujordhui = Trajet::where('date',$date)->count();
+
+  
+            return view('accueil',compact('trajet','data','users','trajets','trajetaujordhui'));
+
         
-        return view('accueil',compact('trajet','data','users','trajets','trajetaujordhui'));
+        
+       
     }
     public function search(Request $request){
         
@@ -76,8 +81,11 @@ class TrajetController extends Controller
             $data=User::where('id','=',Session::get('loginId'))->first();
         }
         $trajett = Trajet::all()->where('villedep','=',$request->villedep)->where('villedes','=',$request->villedes)->where('date','=',$request->date);
-        
-        return view('/voiture',compact('trajett','data'));
+        if($trajett){
+        return view('/voiture',compact('trajett','data'));}
+        else{
+            return back()->with('success',"reservation effectuer avec success .");
+        }
     }
     public function reserver(){
         $data=array();
@@ -99,6 +107,8 @@ class TrajetController extends Controller
             }else{
             return back()->with('fail',"nombre de place c bon.");
         }
+        
+        
        
        return back()->with('success',"bravooo");    }
 }

@@ -40,7 +40,7 @@ margin-top:100px;
       <li><a href="{{url('trajet')}}"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-     <li><a href="{{url('profile')}}"><i class='fas fa-user-edit' class="open-button" style='font-size:25px;color:white'></i> {{$data ->nom}}</a></li>
+    <li><a href="{{url('profile')}}"><img src="/images/{{$data->photo}}" width="35px" height="35px" style="border-radius:50px;"><span style='font-size:20px;color:white'> {{$data ->nom}}</span></a></li>
       <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>
@@ -76,7 +76,7 @@ margin-top:100px;
         </div>
         <div class="modal-body">
           
-        <form action="{{Route('update')}}" method="post" id="non">
+        <form action="{{Route('update')}}" method="post" id="non" enctype="multipart/form-data">
                     @if(Session::has('success'))
                     <div class="alert alert-success">{{Session::get('success')}}</div>
                     @endif
@@ -114,7 +114,7 @@ margin-top:100px;
                     </div>
                     <div class="form-group">
                         <label for="photo">Photo de profile</label>
-                        <input type="file" class="form-control"  name="photo" value="{{$data->photo}}">
+                        <input type="file" class="form-control"  name="photo">
                         <span class="text-danger" >@error('photo'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">

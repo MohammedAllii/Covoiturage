@@ -39,7 +39,7 @@ margin-top:210px;
 
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="{{url('profile')}}"><i class='fas fa-user-edit' class="open-button" style='font-size:25px;color:white'></i> {{$data ->nom}}</a></li>
+    <li><a href="{{url('profile')}}"><img src="/images/{{$data->photo}}" width="35px" height="35px" style="border-radius:50px;"><span style='font-size:20px;color:white'> {{$data ->nom}}</span></a></li>
       <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
     </ul>
   </div>
@@ -92,23 +92,43 @@ margin-top:210px;
 
 @foreach($trajett as $trajets)
 <div class="container p-5 my-5 text-white" style="background-image:url('/images/bg.jpg');background-size:cover;color:#000000;border-radius:5px;border:#000000 1px solid;">
-<div class="text text-left">
+<div class="text text-center">
 <h3> <span class="glyphicon glyphicon-map-marker" style="color:red;"> {{$trajets->villedep}}</span> ----><span class="glyphicon glyphicon-map-marker" style="color:green;">  {{$trajets->villedes}}</span></h3>
 </div>
-<div class="text text-right">
+@if(Session::has('success'))
+                    <div class="text text-center">
+                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                    </div>
+                    @endif
+                    @if(Session::has('fail'))
+                    <div class="text text-center">
+
+                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                    </div>
+                    @endif
+<div class="text text-left">
 <h3><div class="fa fa-money">  Prix:  <span style="color:red;">{{$trajets->prix}} Dt</span></div></h3>
     <h3><div class='fas fa-wheelchair'>  Places : <span style="color:red;">{{$trajets->nbp}} </span></div></h3>
     <h3><div class='fas fa-car'>  Marque  : <span style="color:red;"> {{$trajets->marque}}</span></div></h3>
-    <h3><div class='fas fa-clock'>  Date  : <span style="color:red;"> {{$trajets->date}}&nbsp;&nbsp;{{$trajets->heure}}</span></div></h3><br>
-  </div>
-<div class="text text-center">
-<button class="btn btn-info">Détails</button>
+    <h3><div class='fas fa-clock'>  Date  : <span style="color:red;"> {{$trajets->date}}&nbsp;&nbsp;{{$trajets->heure}}</span></div></h3>
+      <div class="hidea">
+        <h3><div class='fas fa-male'>  Publier par  : <span style="color:red;"> {{$trajets->name_user}}</span></div></h3>
+        <h3><div class='fas fa-phone'>  Télephone  : <span style="color:red;"> {{$trajets->phone}}</span></div></h3>
+        <h3><div class='fas fa-envelope'>  Email  : <span style="color:red;"> {{$trajets->email}}</span></div></h3>
+      </div>
+   </div>
+<div class="text text-right">
+<button class="btn btn-primary"><div class="showa">Plus Détails</div></button>
+<a href="reserver"><button class="btn btn-success">Réserver</button></a>
 </div>
 <br>
 </div>
 <br>
 @endforeach
 <br>
+
+
+</section>
 
 
 </section>
@@ -129,5 +149,12 @@ margin-top:210px;
         </div>
     </div>
 </section>
+<script>
+  $(".hidea").hide();
+     $(document).ready(function(){
+            $(".showa").click(function(){
+            $(".hidea").toggle(500);
+            });});
+</script>
 </body>
 </html>
