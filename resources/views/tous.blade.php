@@ -83,7 +83,6 @@ margin-top:210px;
    </div>
 <div class="text text-right">
 <button class="btn btn-primary"><div class="showa">Plus Détails</div></button>
-<a href="reserver"><button class="btn btn-success">Réserver</button></a>
 </div>
 <br>
 </div>
