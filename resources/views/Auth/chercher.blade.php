@@ -7,12 +7,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Covoiturage</title>
-    <link rel="icon" href="/images/bg6.png">
     <style>
 #contact{
-  
-  padding: 3px;
+padding: 3px;
 width: 100%;
+margin-top:210px;
+ 
 }
 .navbar{
   background:#000000;
@@ -33,74 +33,65 @@ width: 100%;
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
-      <li class="active"><a href="{{url('/accueil')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
-      <li><a href="{{url('/all')}}"><i class='fas fa-list' style='font-size:25px;color:white'></i>  TOUS LES TRAJETS</a></li>
-      <li><a href="{{url('/voiture')}}"><i class='fas fa-search' style='font-size:25px;color:white'></i>  CHERCHER UN TRAJET</a></li>
-      <li><a href="{{url('trajet')}}"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
-</li>
+      <li><a href="{{url('/')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
+      <li><a href="{{url('/tous')}}"><i class='fas fa-list' style='font-size:25px;color:white'></i>  TOUS LES TRAJETS</a></li>
+      <li class="active"><a href="{{url('/chercher')}}"><i class='fas fa-search' style='font-size:25px;color:white'></i>  CHERCHER UN TRAJET</a></li>
+
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="{{url('profile')}}"><img src="/images/{{$data->photo}}" width="35px" height="35px" style="border-radius:50px;"><span style='font-size:20px;color:white'> {{$data ->nom}}</span></a></li>
-      <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
-
+      <li><a href="{{url('inscrit')}}"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
+      <li><a href="{{url('cnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   CONNEXION</a></li>
+      <li><a href="{{url('/dashboard')}}"><i class='fas fa-chalkboard-teacher' class="open-button" style='font-size:25px;color:white'></i>   TABLEAU DE BOARD</a></li>
     </ul>
   </div>
 </nav>
-<!--header-->
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="/images/bg6.png"  style="width:100%;height:80%;">
-      </div>
+   
 
-     
-    
+
+    <br>
+
+        <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4" style="margin-top:70px;">
+                <h2><g>Où Voulez-vous aller?</g></h2>
+                <hr>
+        <form action="/chercher" method="get">
+                @if(Session::has('success'))
+                    <div class="alert alert-success">{{Session::get('success')}}</div>
+                    @endif
+                    @if(Session::has('fail'))
+                    <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                    @endif
+                    @csrf
+                    <div class="form-group">
+                        <label for="villedep">Ville de depart</label>
+                        <input type="text" class="form-control" placeholder="Entrer votre Ville de depart" name="villedep" value="{{old('villedep')}}">
+                        <span class="text-danger" >@error('villedep'){{$message}} @enderror</span>
+
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="villedes">Ville de destination</label>
+                        <input type="text" class="form-control" placeholder="Entrer votre Ville de destination" name="villedes" value="{{old('villedes')}}">
+                        <span class="text-danger" >@error('villedes'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" placeholder="Date" name="date" value="{{old('date')}}">
+                        <span class="text-danger" >@error('date'){{$message}} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-block btn-primary" type="submit">Chercher</button>
+                    </div>
+                </form>
+</div></div></div>
     </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
-
-
     <br>
     <section class="gray-section">
-<div class="text text-center">
-    <h1>Statistiques</h1>
-</div>
 
-    <table class="table" style="background-color:#000000;height:10%;">
-  <thead>
-    <tr>
-      <th scope="col" class="text text-center" style="color:#FFFFFF;font-size:20px;">{{ $users->count() }}  Personne Inscrit</th>
-      <th scope="col" class="text text-center" style="color:#FFFFFF;font-size:20px;">{{ $trajets->count() }}  Trajet Publié</th>
-      <th scope="col" class="text text-center" style="color:#FFFFFF;font-size:20px;">{{$trajetaujordhui }}  Trajet d'aujord'hui</th>
-      
-    </tr>
-  </thead>
-</table>
-</section>
-
-    <br>
-<section class="gray-section">
-<div class="text text-center">
-    <h1>Les Dérniéres Annonces</h1>
-</div>
-@foreach($trajet as $trajets)
+@foreach($trajett as $trajets)
 <div class="container p-5 my-5 text-white" style="background-image:url('/images/bg.jpg');background-repeat: no-repeat;background-position: right 20%;color:#000000;border-radius:5px;border:#000000 1px solid;">
 <div class="text text-center">
 <h3> <span class="glyphicon glyphicon-map-marker" style="color:red;"> {{$trajets->villedep}}</span> ----><span class="glyphicon glyphicon-map-marker" style="color:green;">  {{$trajets->villedes}}</span></h3>
@@ -129,7 +120,6 @@ width: 100%;
    </div>
 <div class="text text-right">
 <button class="btn btn-primary"><div class="showa">Plus Détails</div></button>
-<a href="reserver"><button class="btn btn-success">Réserver</button></a>
 </div>
 <br>
 </div>
@@ -139,6 +129,10 @@ width: 100%;
 
 
 </section>
+
+
+</section>
+
     <br>
 <!--footer-->
 <section id="contact" style="background-color:#000000;" >
@@ -155,7 +149,6 @@ width: 100%;
         </div>
     </div>
 </section>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script>
   $(".hidea").hide();
      $(document).ready(function(){

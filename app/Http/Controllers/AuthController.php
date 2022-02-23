@@ -4,11 +4,42 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Trajet;
+use App\Admin;
+use App\Reservation;
 use Hash;
 use Session;
+use Carbon\Carbon;
+
 
 class AuthController extends Controller
-{
+{   public function home(){
+    $users = User::all();
+    $trajets = Trajet::all();
+    $date=array();
+    $date = Carbon::now()->format('Y-m-d');
+    $trajet=array();
+    $trajet=Trajet::where('date',$date)->get();
+    $trajetaujordhui = Trajet::where('date',$date)->count();
+
+
+        return view('Auth.home',compact('trajet','users','trajets','trajetaujordhui')); }
+
+        public function chercher(Request $request){
+            $trajett = Trajet::all()->where('villedep','=',$request->villedep)->where('villedes','=',$request->villedes)->where('date','=',$request->date);
+            if($trajett){
+            return view('Auth.chercher',compact('trajett'));}
+            else{
+                return back()->with('success',"bravo .");
+            }
+        }
+        
+        
+
+                public function board(){
+                        return view('board');
+                }
+
     public function login(){
        return view("Auth.connexion");
     }

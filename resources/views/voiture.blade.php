@@ -34,7 +34,8 @@ margin-top:210px;
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
       <li><a href="{{url('/accueil')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
-      <li class="active"><a href="/voiture"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
+      <li><a href="{{url('/all')}}"><i class='fas fa-list' style='font-size:25px;color:white'></i>  TOUS LES TRAJETS</a></li>
+      <li class="active"><a href="/voiture"><i class='fas fa-search' style='font-size:25px;color:white'></i>  CHERCHER UN TRAJET</a></li>
       <li><a href="{{url('trajet')}}"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
 
     </ul>
@@ -91,7 +92,7 @@ margin-top:210px;
     <section class="gray-section">
 
 @foreach($trajett as $trajets)
-<div class="container p-5 my-5 text-white" style="background-image:url('/images/bg.jpg');background-size:cover;color:#000000;border-radius:5px;border:#000000 1px solid;">
+<div class="container p-5 my-5 text-white" style="background-image:url('/images/bg.jpg');background-repeat: no-repeat;background-position: right 20%;color:#000000;border-radius:5px;border:#000000 1px solid;">
 <div class="text text-center">
 <h3> <span class="glyphicon glyphicon-map-marker" style="color:red;"> {{$trajets->villedep}}</span> ----><span class="glyphicon glyphicon-map-marker" style="color:green;">  {{$trajets->villedes}}</span></h3>
 </div>

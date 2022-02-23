@@ -111,4 +111,19 @@ class TrajetController extends Controller
         
        
        return back()->with('success',"bravooo");    }
+
+       public function Toustrajets(){
+        
+        $data=array();
+        if(Session::has('loginId')){
+            $data=User::where('id','=',Session::get('loginId'))->first();
+        }
+        $trajets = Trajet::all();
+  
+            return view('all',compact('data','trajets'));
+
+        
+        
+       
+    }
 }

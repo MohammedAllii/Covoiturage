@@ -36,12 +36,15 @@ margin-top:114px;
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
-      <li><a href="#"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
-      <li><a href="#"><i class='fas fa-car' style='font-size:25px;color:white'></i>  COVOITURAGE</a></li>
+      <li><a href="{{url('/')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
+      <li><a href="{{url('/tous')}}"><i class='fas fa-list' style='font-size:25px;color:white'></i>  TOUS LES TRAJETS</a></li>
+      <li><a href="{{url('/chercher')}}"><i class='fas fa-search' style='font-size:25px;color:white'></i>  CHERCHER UN TRAJET</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="{{url('inscrit')}}"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
       <li class="active"><a href="{{url('cnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   CONNEXION</a></li>
+      <li><a href="{{url('/dashboard')}}"><i class='fas fa-chalkboard-teacher' class="open-button" style='font-size:25px;color:white'></i>   TABLEAU DE BOARD</a></li>
+
     </ul>
   </div>
 </nav>

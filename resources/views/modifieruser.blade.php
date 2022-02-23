@@ -35,16 +35,10 @@ margin-top:100px;
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
-      <li><a href="{{url('/accueil')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
-      <li><a href="{{url('/all')}}"><i class='fas fa-list' style='font-size:25px;color:white'></i>  TOUS LES TRAJETS</a></li>
-      <li><a href="{{url('voiture')}}"><i class='fas fa-search' style='font-size:25px;color:white'></i>  CHERCHER UN TRAJET</a></li>
-      <li class="active"><a href="#"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
+
 </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-    <li><a href="{{url('profile')}}"><img src="/images/{{$data->photo}}" width="35px" height="35px" style="border-radius:50px;"><span style='font-size:20px;color:white'> {{$data ->nom}}</span></a></li>
-      <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
-    </ul>
+    
   </div>
 </nav>
 <!--header-->
@@ -53,9 +47,10 @@ margin-top:100px;
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4" style="margin-top:70px;">
-                <h2><g>Publier un trajet</g></h2>
+                <h2><g>Modifier trajet</g></h2>
                 <hr>
-                <form action="{{Route('AddTrajets')}}" method="post">
+                @foreach($user as $user)
+                <form action="{{Route('updateusers')}}" method="post" id="non" enctype="multipart/form-data">
                     @if(Session::has('success'))
                     <div class="alert alert-success">{{Session::get('success')}}</div>
                     @endif
@@ -64,45 +59,45 @@ margin-top:100px;
                     @endif
                     @csrf
                     <div class="form-group">
-                        <label for="villedep">Ville Depart</label>
-                        <input type="text" class="form-control" placeholder="Votre ville de depart" name="villedep" value="{{old('villedep')}}">
-                        <span class="text-danger" >@error('villedep'){{$message}} @enderror</span>
+                        <input type="hidden" class="form-control"  name="id" value="{{$user->id}}">
                     </div>
                     <div class="form-group">
-                        <label for="villedes">Ville destination</label>
-                        <input type="text" class="form-control" placeholder="Votre ville de destination" name="villedes" value="{{old('villedes')}}">
-                        <span class="text-danger" >@error('villedes'){{$message}} @enderror</span>
+                        <label for="name">Nom Complet : </label>
+                        <input type="text" class="form-control" placeholder="Entrer votre nom complet" name="nom" value="{{$user->nom}}">
+                        <span class="text-danger" >@error('nom'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
-                        <label for="nbp">Nombre de place</label>
-                        <input type="number" class="form-control" placeholder="Nombre de place" name="nbp" value="{{old('nbp')}}">
-                        <span class="text-danger" >@error('nbp'){{$message}} @enderror</span>
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" placeholder="Entrer votre Email" name="email" value="{{$user->email}}">
+                        <span class="text-danger" >@error('email'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
-                        <label for="marque">Marque voiture</label>
-                        <input type="text" class="form-control" placeholder="Marque du voiture" name="marque" value="{{old('marque')}}">
-                        <span class="text-danger" >@error('marque'){{$message}} @enderror</span>
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" placeholder="Entrer votre age" name="age" value="{{$user->age}}">
+                        <span class="text-danger" >@error('age'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
-                        <label for="prix">Prix</label>
-                        <input type="number" class="form-control" placeholder="Prix pour chaque place" name="prix" value="{{old('prix')}}">
-                        <span class="text-danger" >@error('prix'){{$message}} @enderror</span>
+                        <label for="phone">Numéro Télephone</label>
+                        <input type="text" class="form-control" placeholder="Entrer votre Télephone" name="phone" value="{{$user->phone}}">
+                        <span class="text-danger" >@error('phone'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
-                        <label for="date">Date</label>
-                        <input type="date" class="form-control" placeholder="Date" name="date" value="{{old('date')}}">
-                        <span class="text-danger" >@error('date'){{$message}} @enderror</span>
+                        <label for="password">Mot de Passe</label>
+                        <input type="password" class="form-control" placeholder="Entrer votre mot de passe" name="password" >
+                        <span class="text-danger" >@error('password'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
-                        <label for="heure">Heure</label>
-                        <input type="time" class="form-control" placeholder="Time" name="heure" value="{{old('heure')}}">
-                        <span class="text-danger" >@error('heure'){{$message}} @enderror</span>
+                        <label for="photo">Photo de profile</label>
+                        <input type="file" class="form-control"  name="photo">
+                        <span class="text-danger" >@error('photo'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-block btn-primary" type="submit">Publier</button>
+                        <button class="btn btn-primary" type="submit">Modifier</button>
                     </div>
                 </form>
             </div>  
+            @endforeach
+
         </div>
     </div>
 </section>

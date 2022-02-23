@@ -33,15 +33,15 @@ width: 100%;
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
-      <li class="active"><a href="{{url('/accueil')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
-      <li><a href="{{url('/all')}}"><i class='fas fa-list' style='font-size:25px;color:white'></i>  TOUS LES TRAJETS</a></li>
-      <li><a href="{{url('/voiture')}}"><i class='fas fa-search' style='font-size:25px;color:white'></i>  CHERCHER UN TRAJET</a></li>
-      <li><a href="{{url('trajet')}}"><i class='fas fa-marker' style='font-size:25px;color:white'></i>  PUBLIER UN TRAJET</a>
+      <li class="active"><a href="{{url('/')}}"><i class='fas fa-home' style='font-size:25px;color:white'></i>  ACCUEIL</a></li>
+      <li><a href="{{url('/tous')}}"><i class='fas fa-list' style='font-size:25px;color:white'></i>  TOUS LES TRAJETS</a></li>
+      <li><a href="{{url('chercher')}}"><i class='fas fa-search' style='font-size:25px;color:white'></i>  CHERCHER UN TRAJET</a></li>
 </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="{{url('profile')}}"><img src="/images/{{$data->photo}}" width="35px" height="35px" style="border-radius:50px;"><span style='font-size:20px;color:white'> {{$data ->nom}}</span></a></li>
-      <li><a href="{{url('decocnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   DECONNEXION</a></li>
+      <li><a href="{{url('inscrit')}}"><i class='fa fa-user' style='font-size:25px;color:white'></i>   INSCRIPTION</a></li>
+      <li><a href="{{url('cnx')}}"><i class='fas fa-sign-in-alt' class="open-button" style='font-size:25px;color:white'></i>   CONNEXION</a></li>
+      <li><a href="{{url('/dashboard')}}"><i class='fas fa-chalkboard-teacher' class="open-button" style='font-size:25px;color:white'></i>   TABLEAU DE BOARD</a></li>
 
     </ul>
   </div>
@@ -129,7 +129,6 @@ width: 100%;
    </div>
 <div class="text text-right">
 <button class="btn btn-primary"><div class="showa">Plus Détails</div></button>
-<a href="reserver"><button class="btn btn-success">Réserver</button></a>
 </div>
 <br>
 </div>
